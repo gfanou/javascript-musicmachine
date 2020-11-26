@@ -52,6 +52,10 @@ $(document).ready(function () {
 
     // Empty array to record a song as the user clicks notes
     var recordedNotes = [];
+    var songOne = ["C,4","D,4","E,4","C,4","C,4","D,4","E,4","C,4","E,4","F,4","G,4","E,4",
+                  "F,4","G,4","G,4","A,4","G,4","F,4","E,4","C,4","E,4","D,4","C,4"]   //+++++++++++++++++++++++++++++++++++++++++++++++
+    var songTwo = ["C,5","D,5","E,5","F,5","G,5","A,5","B,5",
+                    "B,5","A,5","G,5","F,5","E,5","D,5","C,5",]
 
     // This anonymous function makes the Play Recording
     // button play the array of recorded notes
@@ -62,6 +66,17 @@ $(document).ready(function () {
     // Assign functions to the other buttons
     $("#recordButton").click(toggleRecording);
     $("#clearButton").click(clearRecording);
+    $("#playSongOne").click(                    //+++++++++++++++++++++++++++++++++
+        function (){
+            playRecording(songOne);
+        }
+    );
+
+    $("#playSongTwo").click(                    //+++++++++++++++++++++++++++++++++
+        function (){
+            playRecording(songTwo);
+        }
+    );
 
 
     function clearRecording() {
@@ -110,7 +125,7 @@ $(document).ready(function () {
         playNote(note, octave);
     }
 
-    function playRecording(arrayOfNotes) {
+    function playRecording(arrayOfNotes) {          //++++++++++++++++++++++++++++
         // Loop over recorded notes, calling the anonymous
         // function for each element
         arrayOfNotes.forEach(function (entry, index) {

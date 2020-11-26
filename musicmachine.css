@@ -53,3 +53,12 @@ p {
 #keyPlaying {
     padding: 10px;
 }
+#playSongOne{
+    color: aqua;
+    background: darkblue;
+}
+
+#playSongTwo{
+    color: aqua;
+    background: darkblue;
+}
