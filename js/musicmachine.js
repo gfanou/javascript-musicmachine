@@ -12,25 +12,25 @@ $(document).ready(function () {
     // Create the grid of keyboard keys
     for (let octave = MIN_OCTAVE; octave <= MAX_OCTAVE; octave++) {
         // Create a new row with a Bootstrap class
-        var row = $("<div>").addClass("row");
+        let row = $("<div>").addClass("row");
         $("#keyboard").append(row);
 
         // Loop over array of color values
-        for (var i = 0; i < allColors.length; i++) {
+        for (let i = 0; i < allColors.length; i++) {
             // Create a new column with a Bootstrap class
-            var col = $("<div>").addClass("col");
+            let col = $("<div>").addClass("col");
             row.append(col);
 
             // Create a <span> to be the clickable key
-            var keyboardKey = $("<span>").addClass("key");
+            let keyboardKey = $("<span>").addClass("key");
             col.append(keyboardKey);
 
             // Set background color with CSS
-            var color = allColors[i];
+            let color = allColors[i];
             keyboardKey.css("background-color", color);
 
             // Set this key's note with data-note
-            var note = allNotes[i];
+            let note = allNotes[i];
             keyboardKey.data("note", note);
 
             // Set this key's octave with data-octave
