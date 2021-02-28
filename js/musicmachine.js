@@ -1,16 +1,16 @@
 $(document).ready(function () {
     // Uses the audiosynth library to create an instrument
     // Other options include "piano", "acoustic", and "edm"
-    var organ = Synth.createInstrument("organ");
+    let organ = Synth.createInstrument("organ");
     // Colors for the keys
-    var allColors = ["#99CC00", "#0099FF", "#9933CC", "#CC0066", "#CC0033", "#FF3300", "#FF6600"];
+    let allColors = ["#99CC00", "#0099FF", "#9933CC", "#CC0066", "#CC0033", "#FF3300", "#FF6600"];
     // Notes in the music scale
-    var allNotes = ["C", "D", "E", "F", "G", "A", "B"];
+    let allNotes = ["C", "D", "E", "F", "G", "A", "B"];
     // Makes keys for these octaves
     const MIN_OCTAVE = 3, MAX_OCTAVE = 5;
 
     // Create the grid of keyboard keys
-    for (var octave = MIN_OCTAVE; octave <= MAX_OCTAVE; octave++) {
+    for (let octave = MIN_OCTAVE; octave <= MAX_OCTAVE; octave++) {
         // Create a new row with a Bootstrap class
         var row = $("<div>").addClass("row");
         $("#keyboard").append(row);
@@ -48,14 +48,14 @@ $(document).ready(function () {
     }
 
     // Boolean for whether or not we're currently recording
-    var isRecording = false;
+    let isRecording = false;
 
     // Empty array to record a song as the user clicks notes
-    var recordedNotes = [];
-    var songOne = ["C,4","D,4","E,4","C,4","C,4","D,4","E,4","C,4","E,4","F,4","G,4","E,4",
-                  "F,4","G,4","G,4","A,4","G,4","F,4","E,4","C,4","E,4","D,4","C,4"]   //+++++++++++++++++++++++++++++++++++++++++++++++
-    var songTwo = ["C,5","D,5","E,5","F,5","G,5","A,5","B,5",
-                    "B,5","A,5","G,5","F,5","E,5","D,5","C,5",]
+    let recordedNotes = [];
+    const songOne = ["C,4", "D,4", "E,4", "C,4", "C,4", "D,4", "E,4", "C,4", "E,4", "F,4", "G,4", "E,4",
+        "F,4", "G,4", "G,4", "A,4", "G,4", "F,4", "E,4", "C,4", "E,4", "D,4", "C,4"];
+    const songTwo = ["C,5", "D,5", "E,5", "F,5", "G,5", "A,5", "B,5",
+        "B,5", "A,5", "G,5", "F,5", "E,5", "D,5", "C,5",];
 
     // This anonymous function makes the Play Recording
     // button play the array of recorded notes
@@ -100,7 +100,7 @@ $(document).ready(function () {
 
     function recordNote(note, octave) {
         // Make a string like "C,3"
-        var entry = note + "," + octave;
+        let entry = note + "," + octave;
         // Store the note information in the array
         recordedNotes.push(entry);
     }
@@ -109,9 +109,9 @@ $(document).ready(function () {
         // recordedNote will contain a string like "C,3"
         // Split the string into an array where index 0
         // holds the note, and index 1 holds the octave
-        var pieces = recordedNote.split(",");
-        var note = pieces[0]; // "C"
-        var octave = pieces[1]; // "3"
+        let pieces = recordedNote.split(",");
+        let note = pieces[0]; // "C"
+        let octave = pieces[1]; // "3"
         // Put the note and octave on the screen
         $("#keyPlaying").text(note + octave);
         // Find all keys and remove the class that gives
@@ -149,11 +149,11 @@ $(document).ready(function () {
 
     function keyClicked() {
         // Which span was clicked?
-        var keyPlayed = $(this);
+        let keyPlayed = $(this);
         // Get its data-note attribute
-        var notePlayed = keyPlayed.data("note");
+        let notePlayed = keyPlayed.data("note");
         // Get its data-octave attribute
-        var octavePlayed = keyPlayed.data("octave");
+        let octavePlayed = keyPlayed.data("octave");
 
         // Make the sound play
         playNote(notePlayed, octavePlayed);
