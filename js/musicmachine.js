@@ -140,7 +140,7 @@ $(document).ready(function () {
 
         // After all the recorded notes have played, clear the span
         // that displays the currently playing note and remove
-        // the dropshadow for the last played key
+        // the drop shadow for the last played key
         setTimeout(function () {
             $("span.key").removeClass("playing");
             $("#keyPlaying").html("&nbsp;");
@@ -162,6 +162,8 @@ $(document).ready(function () {
         if (isRecording)
             recordNote(notePlayed, octavePlayed);
     }
+
+
 
     function playNote(note, octave) {
         // use the instrument from the audiosynth library
